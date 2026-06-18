@@ -1,0 +1,3043 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from around.createx.studio/landing-web-studio.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 May 2023 09:09:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>LOGIX - Home</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+    <meta name="keywords" content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" color="#6366f1" href="assets/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <!-- Theme mode-->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+      
+      
+    </script>
+    <!-- Page loading styles-->
+    <style>
+
+/* ==========================================
+   PAGE LOADER
+========================================== */
+
+.page-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .4s .2s ease-in-out;
+    background-color: #fffffff8;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+}
+
+.dark-mode .page-loading {
+    background-color: #121519;
+}
+
+.page-loading.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loading-inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+
+.page-loading.active > .page-loading-inner {
+    opacity: 1;
+}
+
+.page-loading-inner > span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #6f788b;
+}
+
+.dark-mode .page-loading-inner > span {
+    color: #fff;
+    opacity: .6;
+}
+
+.page-spinner {
+    display: inline-block;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: .75rem;
+    vertical-align: text-bottom;
+    background-color: #d7dde2;
+    border-radius: 50%;
+    opacity: 0;
+    animation: spinner .75s linear infinite;
+}
+
+.dark-mode .page-spinner {
+    background-color: rgba(255,255,255,.25);
+}
+
+@keyframes spinner {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar-custom{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    padding:20px 0;
+    transition:.3s;
+}
+
+.navbar-custom.scrolled{
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(20px);
+}
+
+.nav-container{
+    max-width:1280px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 30px;
+}
+
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    height:42px;
+    width:auto;
+    transition:.3s ease;
+}
+
+.logo:hover img{
+    transform:scale(1.05);
+}
+@media(max-width:768px){
+
+    .logo img{
+        height:36px;
+    }
+
+}
+
+.desktop-menu{
+    display:flex;
+    gap:35px;
+}
+
+.desktop-menu a{
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.desktop-menu a:hover{
+    color:#ff6b00;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-btn{
+    background:#ff6b00;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:.95rem;
+}
+
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+.menu-toggle span{
+    width:28px;
+    height:2px;
+    background:#fff;
+    display:block;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:100%;
+    height:100vh;
+
+    background:#050505;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:35px;
+
+    transition:.4s ease;
+    z-index:998;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:2rem;
+}
+
+.mobile-menu a:hover{
+    color:#ff6b00;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+    .desktop-menu{
+        display:none;
+    }
+
+    .nav-btn{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+}
+
+
+*{
+    box-sizing:border-box;
+}
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero-wrapper{
+    width:100%;
+    max-width:100vw;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+}
+
+.hero-content{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.hero-globe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .25s linear;
+}
+
+.hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    z-index:1;
+}
+
+.hero-overlay-content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1200px;
+
+    min-height:100vh;
+
+    margin:0 auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px 30px;
+
+    box-sizing:border-box;
+}
+
+.hero-tag{
+    display:inline-block;
+
+    color:#ff6b00;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    padding:10px 20px;
+
+    border-radius:50px;
+
+    margin-bottom:25px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+.hero-overlay-content h1{
+    color:#fff;
+
+    font-size:5.5rem;
+
+    line-height:1.05;
+
+    font-weight:700;
+
+    margin:0 0 25px;
+}
+
+.hero-overlay-content h1 span{
+    color:#ff6b00;
+}
+
+.hero-overlay-content p{
+    color:#cfcfcf;
+
+    font-size:1.2rem;
+
+    line-height:1.7;
+
+    max-width:700px;
+
+    margin:0 auto 35px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .hero-overlay-content h1{
+        font-size:4rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-overlay-content{
+        padding:20px;
+    }
+
+    .hero-overlay-content h1{
+        font-size:2.8rem;
+    }
+
+    .hero-overlay-content p{
+        font-size:1rem;
+    }
+
+}
+
+/* ==========================================
+   IMPACT SECTION
+========================================== */
+
+.impact-section{
+    min-height:85vh;
+    background:#000;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.impact-layout{
+    width:100%;
+    max-width:1600px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+
+    gap:100px;
+    align-items:center;
+
+    padding:120px 80px;
+}
+
+/* LEFT */
+
+.impact-left h2{
+    color:#fff;
+    font-size:1.5rem;
+    line-height:1.2;
+    font-weight:400;
+    max-width:650px;
+    margin-bottom:25px;
+    padding-left:40px;
+}
+
+.impact-left p{
+    color:#a5a5a5;
+    font-size:1.1rem;
+    max-width:550px;
+    padding-left:40px;
+}
+
+/* CENTER */
+
+.impact-center{
+    min-height:500px;
+}
+
+/* RIGHT */
+
+.impact-right{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.impact-stat{
+    background:rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+
+    padding:45px;
+
+    min-height:150px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    transition:.4s ease;
+}
+
+.impact-stat:hover{
+    transform:translateY(-8px);
+    border-color:#ff6b00;
+}
+
+.impact-stat h3{
+    color:#ff6b00;
+    font-size:3rem;
+    line-height:1;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.impact-stat span{
+    color:#c9c9c9;
+    font-size:1.35rem;
+    line-height:1.6;
+}
+.impact-tag{
+    color:#ff6b00;
+    letter-spacing:4px;
+    font-size:14px;
+    display:block;
+    margin-bottom:35px;
+    padding-left:40px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media(max-width:992px){
+
+    .impact-layout{
+        grid-template-columns:1fr;
+    }
+
+    .impact-right{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-overlay-content h1{
+        font-size:3rem;
+    }
+
+    .hero-overlay-content p{
+        font-size:1rem;
+    }
+
+    .impact-layout{
+        padding:40px 20px;
+    }
+
+    .impact-left h2{
+        font-size:2rem;
+    }
+
+    .impact-stat h3{
+        font-size:2.3rem;
+    }
+
+}
+
+/* ==================================
+   PARTNERS SECTION
+================================== */
+
+.partners-section{
+    background:#fff;
+    padding:140px 0;
+    
+}
+
+.partners-header{
+    text-align:center;
+    max-width:850px;
+    margin:0 auto 80px;
+}
+
+.section-tag{
+    display:block;
+    color:#ff6b00;
+    letter-spacing:3px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.partners-header h2{
+    color:#111;
+    font-size:2.3rem;
+    line-height:1.3;
+    margin:0;
+}
+
+/* SLIDER */
+
+.logo-slider{
+    margin:30px 0;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+}
+
+.logo-track{
+    display:flex;
+    gap:24px;
+    width:max-content;
+}
+
+/* TOP ROW */
+.track-1{
+    animation:moveLeft 15s ease-in-out infinite;
+}
+
+/* BOTTOM ROW */
+.track-2{
+    animation:moveRight 15s ease-in-out infinite;
+}
+
+/* PAUSE ON HOVER */
+
+.logo-slider:hover .logo-track{
+    animation-play-state:paused;
+}
+
+/* CARD */
+
+.partner-card{
+    width:260px;
+    height:140px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid #e9e9e9;
+
+    border-radius:20px;
+
+    flex-shrink:0;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.05);
+
+    transition:.3s ease;
+}
+
+.partner-card:hover{
+    transform:translateY(-4px);
+    border-color:#ff6b00;
+}
+
+.partner-card img{
+    max-width:170px;
+    max-height:80px;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    transition:.3s ease;
+}
+
+.partner-card:hover img{
+    transform:scale(1.05);
+}
+
+/* FADE EDGES */
+
+.logo-slider::before,
+.logo-slider::after{
+    content:"";
+    position:absolute;
+    top:0;
+    width:100px;
+    height:100%;
+    z-index:2;
+    pointer-events:none;
+}
+
+.logo-slider::before{
+    left:0;
+    background:linear-gradient(to right,#fff,transparent);
+}
+
+.logo-slider::after{
+    right:0;
+    background:linear-gradient(to left,#fff,transparent);
+}
+
+/* ANIMATIONS */
+
+@keyframes moveLeft{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(-25%);
+    }
+
+    70%{
+        transform:translateX(-25%);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+
+}
+
+@keyframes moveRight{
+
+    0%{
+        transform:translateX(-50%);
+    }
+
+    20%{
+        transform:translateX(-50%);
+    }
+
+    50%{
+        transform:translateX(-25%);
+    }
+
+    70%{
+        transform:translateX(-25%);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .partners-section{
+        padding:100px 0;
+    }
+
+    .partners-header h2{
+        font-size:1.8rem;
+    }
+
+    .partner-card{
+        width:180px;
+        height:100px;
+    }
+
+    .partner-card img{
+        max-width:120px;
+        max-height:50px;
+    }
+
+}
+
+
+/* ==========================================
+  PORTIFOLIO VIDEO SHOWCASE
+========================================== */
+
+.portfolio-showcase{
+    background:#fff;
+    padding:140px 0;
+}
+
+.showcase-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.video-showcase{
+
+    width:80%;
+    max-width:1800px;
+
+    margin:auto;
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+.video-showcase video{
+
+    width:100%;
+    display:block;
+
+    opacity:1;
+
+    transform:scale(1);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.video-showcase video.switching{
+
+    opacity:0;
+
+    transform:scale(1.06);
+}
+.showcase-cta{
+    text-align:center;
+    margin-top:60px;
+}
+
+.showcase-cta a{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:#111;
+
+    transition:.3s ease;
+}
+
+.cta-text{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    font-size:1rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    position:relative;
+
+    padding-bottom:18px;
+}
+
+.cta-text::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:125px;   
+
+    height:1px;
+
+    background:#111;
+
+    transition:.3s ease;
+}
+
+.arrow{
+
+    font-size:1rem;
+
+    transition:.35s ease;
+}
+
+.showcase-cta a:hover{
+    color:#ff6b00;
+}
+
+.showcase-cta a:hover .arrow{
+    transform:translateX(8px);
+}
+
+.showcase-cta a:hover .cta-text::after{
+
+    background:#ff6b00;
+
+    height:2px;
+}
+
+/* ==========================================
+   INDUSTRIES WE SERVE
+========================================== */
+
+.industries-section{
+    background:#fff;
+    padding:120px 0;
+}
+
+.industries-header{
+    max-width:850px;
+    margin:0 auto 90px;
+    text-align:center;
+}
+
+.industries-header .section-tag{
+    display:block;
+    color:#ff6b00;
+    letter-spacing:3px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.industries-header h2{
+    font-size:2.8rem;
+    color:#111;
+    line-height:1.2;
+    margin:0;
+}
+
+/* STACK CONTAINER */
+
+.industries-stack{
+    max-width:1400px;
+    margin:auto;
+    position:relative;
+    padding:0 30px;
+}
+
+/* CARD */
+
+.industry-card{
+
+    position:sticky;
+
+    top:120px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    height:520px;
+
+    background:#f5f5f5;
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    margin-bottom:40px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+}
+
+/* STACK ORDER */
+
+.industry-card:nth-child(1){
+    z-index:1;
+}
+
+.industry-card:nth-child(2){
+    z-index:2;
+}
+
+.industry-card:nth-child(3){
+    z-index:3;
+}
+
+.industry-card:nth-child(4){
+    z-index:4;
+}
+
+.industry-card:nth-child(5){
+    z-index:5;
+}
+
+.industry-card:nth-child(6){
+    z-index:6;
+}
+
+/* LEFT SIDE */
+
+.industry-content{
+    padding:70px;
+}
+
+.industry-number{
+    display:block;
+    font-size:5rem;
+    font-weight:700;
+    color:#ff6b00;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.industry-content h3{
+    font-size:2.5rem;
+    line-height:1.1;
+    color:#111;
+    margin-bottom:25px;
+}
+
+.industry-content p{
+    max-width:500px;
+    color:#666;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+/* IMAGE SIDE */
+
+.industry-image{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:40px;
+
+    background:#fff;
+}
+
+.industry-image img{
+
+    width:100%;
+
+    max-width:650px;
+
+    max-height:400px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+/* HOVER */
+
+.industry-card:hover{
+
+    transform:translateY(-4px);
+
+    transition:.3s ease;
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+    .industry-card{
+
+        position:relative;
+
+        top:auto;
+
+        grid-template-columns:1fr;
+
+        height:auto;
+
+        margin-bottom:50px;
+    }
+
+    .industry-content{
+
+        padding:50px;
+    }
+
+    .industry-content h3{
+
+        font-size:2rem;
+    }
+
+    .industry-number{
+
+        font-size:4rem;
+    }
+
+    .industry-image{
+
+        min-height:350px;
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .industries-section{
+
+        padding:90px 0;
+    }
+
+    .industries-header{
+
+        margin-bottom:60px;
+    }
+
+    .industries-header h2{
+
+        font-size:2rem;
+    }
+
+    .industry-content{
+
+        padding:35px;
+    }
+
+    .industry-image{
+
+        padding:20px;
+    }
+
+    .industry-image img{
+
+        max-height:250px;
+    }
+
+}
+
+/* ==========================================
+   FAQ SECTION
+========================================== */
+
+.faq-section{
+    background:#ffffff;
+    padding:90px 0;
+}
+
+.faq-header{
+
+    max-width:1200px;
+
+    margin:0 auto 60px;
+
+    text-align:left;
+}
+
+.faq-header .section-tag{
+
+    display:block;
+
+    color:#ff6b00;
+
+    letter-spacing:3px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+.faq-header h2{
+
+    font-size:3.5rem;
+
+    color:#ff6b00;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    max-width:700px;
+}
+
+.faq-header p{
+
+    color:#777;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    max-width:600px;
+
+    margin:0;
+}
+
+/* FAQ WRAPPER */
+
+.faq-wrapper{
+
+    max-width:1200px;
+
+    margin:0 auto;
+}
+
+/* ITEM */
+
+.faq-item{
+
+    border-bottom:1px solid #ececec;
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+    opacity .6s ease,
+    transform .6s ease;
+}
+
+.faq-item.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* QUESTION */
+
+.faq-question{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    padding:24px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    color:#111;
+
+    font-size:1.3rem;
+
+    font-weight:500;
+
+    transition:.3s ease;
+}
+
+.faq-question:hover{
+    color:#ff6b00;
+}
+
+/* ICON */
+
+.faq-icon{
+
+    color:#ff6b00;
+
+    font-size:1.8rem;
+
+    flex-shrink:0;
+
+    margin-left:30px;
+
+    transition:.35s ease;
+}
+
+/* ANSWER */
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .45s ease;
+}
+
+.faq-answer p{
+
+    color:#666;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    max-width:900px;
+
+    padding-bottom:25px;
+}
+
+/* ACTIVE */
+
+.faq-item.active .faq-answer{
+    max-height:220px;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+}
+
+.faq-item.active .faq-question{
+    color:#111;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .faq-header h2{
+        font-size:2.7rem;
+    }
+
+    .faq-question{
+        font-size:1.15rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .faq-section{
+        padding:70px 0;
+    }
+
+    .faq-header{
+        margin-bottom:40px;
+    }
+
+    .faq-header h2{
+        font-size:2rem;
+    }
+
+    .faq-header p{
+        font-size:.95rem;
+    }
+
+    .faq-question{
+
+        font-size:1rem;
+
+        padding:20px 0;
+    }
+
+    .faq-icon{
+        font-size:1.4rem;
+    }
+
+}
+
+/* ==========================================
+   BIG CTA
+========================================== */
+
+.cta-section{
+
+    background:#121212;
+
+    padding:180px 30px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.cta-content{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.cta-section .section-tag{
+
+    display:block;
+
+    color:#ff6b00;
+
+    letter-spacing:4px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+}
+
+.cta-section h2{
+
+    color:#fff;
+
+    font-size:4.5rem;
+
+    line-height:1.05;
+
+    margin-bottom:30px;
+}
+
+.cta-section p{
+
+    color:#9e9e9e;
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    max-width:700px;
+
+    margin:0 auto 50px;
+}
+
+/* LINK */
+
+.cta-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    position:relative;
+}
+
+.cta-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:100%;
+
+    height:1px;
+
+    background:#fff;
+
+    transition:.35s ease;
+}
+
+.cta-link:hover::after{
+
+    width:65%;
+}
+
+.cta-arrow{
+
+    transition:.35s ease;
+}
+
+.cta-link:hover .cta-arrow{
+
+    transform:translateX(8px);
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+    .cta-section h2{
+
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .cta-section{
+
+        padding:120px 25px;
+    }
+
+    .cta-section h2{
+
+        font-size:2.2rem;
+    }
+
+    .cta-section p{
+
+        font-size:1rem;
+    }
+
+}
+
+/* ==========================================
+   MODERN DARK FOOTER
+========================================== */
+
+.footer-modern{
+
+    background:#050505;
+
+    padding:100px 0 40px;
+
+    color:#fff;
+}
+
+/* CTA */
+
+.footer-cta{
+
+    background:#0f0f0f;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:50px 60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:90px;
+}
+
+.footer-cta h3{
+
+    color:#fff;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+}
+
+.footer-cta p{
+
+    color:#9f9f9f;
+
+    margin:0;
+}
+
+.footer-btn{
+
+    padding:16px 36px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:.3s ease;
+}
+
+.footer-btn:hover{
+
+    background:#ff6b00;
+
+    border-color:#ff6b00;
+
+    color:#fff;
+}
+
+/* LINKS */
+
+.footer-links-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:60px;
+
+    margin-bottom:70px;
+}
+
+.footer-links-grid h5{
+
+    color:#ff6b00;
+
+    margin-bottom:25px;
+
+    font-size:.95rem;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.footer-links-grid a{
+
+    display:block;
+
+    color:#b8b8b8;
+
+    text-decoration:none;
+
+    margin-bottom:16px;
+
+    transition:.3s ease;
+}
+
+.footer-links-grid a:hover{
+
+    color:#fff;
+}
+
+/* DIVIDER */
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding-top:30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.footer-bottom span{
+
+    color:#8a8a8a;
+}
+
+.footer-bottom-links{
+
+    display:flex;
+
+    gap:30px;
+}
+
+.footer-bottom-links a{
+
+    color:#8a8a8a;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+}
+
+.footer-bottom-links a:hover{
+
+    color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+    .footer-cta{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:25px;
+    }
+
+    .footer-links-grid{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .footer-modern{
+
+        padding:80px 0 30px;
+    }
+
+    .footer-links-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+    }
+
+}
+/* ==========================================
+   WEBSITE WIDTH FIX
+========================================== */
+
+.container{
+    width:100%;
+    max-width:1320px;
+    margin:0 auto;
+    padding:0 30px;
+}
+
+.nav-container{
+    max-width:1320px;
+}
+
+.hero-overlay-content{
+    max-width:850px;
+}
+
+.hero-overlay-content h1{
+    font-size:4.8rem;
+}
+
+.hero-overlay-content p{
+    font-size:1.05rem;
+}
+
+/* IMPACT */
+
+.impact-layout{
+
+    max-width:1320px;
+
+    margin:auto;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    padding:90px 30px;
+}
+
+.impact-left h2{
+
+    font-size:2.4rem;
+
+    line-height:1.25;
+
+    max-width:600px;
+}
+
+.impact-left p{
+
+    font-size:1rem;
+
+    max-width:520px;
+}
+
+.impact-stat{
+
+    padding:30px;
+
+    min-height:140px;
+}
+
+.impact-stat h3{
+
+    font-size:2.3rem;
+}
+
+.impact-stat span{
+
+    font-size:1rem;
+}
+
+/* FAQ */
+
+.faq-header,
+.faq-wrapper{
+    max-width:1100px;
+}
+
+/* FOOTER */
+
+.footer-modern .container{
+    max-width:1320px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero-overlay-content h1{
+        font-size:3rem;
+    }
+
+    .impact-layout{
+        padding:60px 25px;
+    }
+
+    .impact-left h2{
+        font-size:2rem;
+    }
+}
+
+</style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1500);
+        };
+      })();
+      
+    </script>
+    <!-- Import Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" id="google-font">
+    <!-- Vendor styles-->
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/aos/dist/aos.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+    <!-- Customizer generated styles-->
+    <style id="customizer-styles"></style>
+    <!-- Google Tag Manager-->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WKV3GT5');
+    </script>
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+    </noscript>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <!-- Customizer modal-->
+    <div class="modal fade" id="customizer-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Your custom styles</h4>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4">
+            <p class="mb-3">Grab the generated styles below. Wrap them inside <code>&lt;style&gt;</code> tag and put in the <code>&lt;head&gt;</code> section of your HTML document.</p>
+            <p class="mb-4"><span class='fw-medium'>IMPORTANT:</span> In order for these styles to take effect you have to placed them below:<br><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;assets/css/theme.min.css&quot;&gt;</code></p>
+            <div class="bg-secondary overflow-hidden rounded-4">
+              <pre class="text-wrap bg-transparent border-0 text-dark p-4" id="custom-generated-styles"></pre>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button" id="copy-styles-btn"><i class="ai-copy me-2 ms-n1"></i>Copy styles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Customizer toggler--><a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none" href="#customizer" data-bs-toggle="offcanvas" style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;"><i class="ai-settings text-primary fs-base me-1 ms-n1"></i></a>
+    <!-- Customizer offcanvas-->
+    <div class="offcanvas offcanvas-end" id="customizer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1">
+      <div class="offcanvas-header border-bottom">
+        <h4 class="offcanvas-title">Customize theme</h4>
+        <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-flex align-items-center mb-3"><i class="ai-paint-roll text-muted fs-4 me-2"></i>
+          <h5 class="mb-0">Colors</h5>
+        </div>
+        <div class="row row-cols-3 g-3 mb-5" id="theme-colors">
+          <div class="col">
+            <div class="text-dark fs-sm fw-medium mb-2">Primary</div>
+            <div class="color-swatch" id="theme-primary" data-color-labels="[&quot;theme-primary&quot;, &quot;primary&quot;, &quot;primary-rgb&quot;]">
+              <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="primary" style="background-color: #df6c0e;" role="button"></label>
+              <input class="form-control form-control-sm" type="text" value="#448c74">
+              <input class="visually-hidden" type="color" id="primary" value="#448c74">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-dark fs-sm fw-medium mb-2">Warning</div>
+            <div class="color-swatch" id="theme-warning" data-color-labels="[&quot;theme-warning&quot;, &quot;warning&quot;, &quot;warning-rgb&quot;]">
+              <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="warning" style="background-color: #dc8213;" role="button"></label>
+              <input class="form-control form-control-sm" type="text" value="#edcb50">
+              <input class="visually-hidden" type="color" id="warning" value="#edcb50">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-dark fs-sm fw-medium mb-2">Info</div>
+            <div class="color-swatch" id="theme-info" data-color-labels="[&quot;theme-info&quot;, &quot;info&quot;, &quot;info-rgb&quot;]">
+              <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="info" style="background-color: #3983d7;" role="button"></label>
+              <input class="form-control form-control-sm" type="text" value="#3f7fca">
+              <input class="visually-hidden" type="color" id="info" value="#3f7fca">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-dark fs-sm fw-medium pt-1 mb-2">Success</div>
+            <div class="color-swatch" id="theme-success" data-color-labels="[&quot;theme-success&quot;, &quot;success&quot;, &quot;success-rgb&quot;]">
+              <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="success" style="background-color: #edf1f0;" role="button"></label>
+              <input class="form-control form-control-sm" type="text" value="#3fca90">
+              <input class="visually-hidden" type="color" id="success" value="#3fca90">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-dark fs-sm fw-medium pt-1 mb-2">Danger</div>
+            <div class="color-swatch" id="theme-danger" data-color-labels="[&quot;theme-danger&quot;, &quot;danger&quot;, &quot;danger-rgb&quot;]">
+              <label class="ratio ratio-4x3 border rounded-1 cursor-pointer mb-1" for="danger" style="background-color: #da3434;" role="button"></label>
+              <input class="form-control form-control-sm" type="text" value="#ed5050">
+              <input class="visually-hidden" type="color" id="danger" value="#ed5050">
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mb-3"><i class="ai-align-left text-muted fs-4 me-2"></i>
+          <h5 class="mb-0">Typography <span class="text-muted fs-sm fw-normal">(1rem = 16px)</span></h5>
+        </div>
+        <div class="mb-5">
+          <div class="mb-3">
+            <label class="text-dark fs-sm fw-medium pt-1 mb-2" for="font-url">Google font URL</label>
+            <input class="form-control" type="url" value="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" id="font-url">
+          </div>
+          <div class="mb-3">
+            <label class="text-dark fs-sm fw-medium pt-1 mb-2" for="body-font-family">Font family</label>
+            <input class="form-control" type="text" value="'Inter', sans-serif" id="body-font-family">
+          </div>
+          <div class="row row-cols-2">
+            <div class="col mb-3">
+              <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="root-font-size">Root font size, rem</label>
+              <select class="form-select" id="root-font-size">
+                <option value=".75rem">.75</option>
+                <option value=".875rem">.875</option>
+                <option value="1rem" selected>1</option>
+                <option value="1.05rem">1.05</option>
+                <option value="1.1rem">1.1</option>
+                <option value="1.15rem">1.15</option>
+                <option value="1.25rem">1.25</option>
+                <option value="1.375rem">1.375</option>
+              </select>
+            </div>
+            <div class="col mb-3">
+              <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="body-font-size">Body font size, rem</label>
+              <select class="form-select" id="body-font-size">
+                <option value=".75rem">.75</option>
+                <option value=".875rem">.875</option>
+                <option value="1rem" selected>1</option>
+                <option value="1.15rem">1.15</option>
+                <option value="1.25rem">1.25</option>
+                <option value="1.375rem">1.375</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mt-n2 mb-3"><i class="ai-maximize text-muted fs-5 me-2"></i>
+          <h5 class="mb-0">Borders / Rounding</h5>
+        </div>
+        <div class="mb-3">
+          <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-width">Border width, px</label>
+          <input class="form-control" type="number" min="0" step="1" value="1" id="border-width">
+        </div>
+        <div class="mb-3">
+          <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius">Rounded base, rem</label>
+          <input class="form-control" type="number" min="0" step=".05" value="1" id="border-radius">
+        </div>
+        <div id="theme-border-radiuses">
+          <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-sm">
+              Rounded SM<span class='text-muted fw-normal ms-1'> = Rounded base multiplied by</span></label>
+            <input class="form-control" type="number" min="0" step=".05" value=".75" id="border-radius-sm">
+          </div>
+          <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-lg">
+              Rounded LG<span class='text-muted fw-normal ms-1'> = Rounded base multiplied by</span></label>
+            <input class="form-control" type="number" min="0" step=".05" value="1.125" id="border-radius-lg">
+          </div>
+          <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-xl">
+              Rounded XL<span class='text-muted fw-normal ms-1'> = Rounded base multiplied by</span></label>
+            <input class="form-control" type="number" min="0" step=".05" value="1.5" id="border-radius-xl">
+          </div>
+          <div class="mb-3">
+            <label class="d-flex w-100 text-dark fs-sm fw-medium pt-1 mb-2" for="border-radius-2xl">
+              Rounded 2XL<span class='text-muted fw-normal ms-1'> = Rounded base multiplied by</span></label>
+            <input class="form-control" type="number" min="0" step=".05" value="2.25" id="border-radius-2xl">
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-header border-top d-none" id="customizer-btns">
+        <button class="btn btn-secondary w-100 me-3" type="button" id="customizer-reset-btn"><i class="ai-undo fs-lg me-2 ms-n1"></i>Reset</button>
+        <button class="btn btn-primary w-100" type="button" data-bs-toggle="modal" data-bs-target="#customizer-modal"><i class="ai-code-curly fs-lg me-2 ms-n1"></i>Show styles</button>
+      </div>
+    </div>
+    <!-- Page wrapper-->
+    <main class="page-wrapper">
+     <!-- NAVBAR -->
+<header class="navbar-custom">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo/logix.png" alt="LOGIX">
+        </a>
+
+        <nav class="desktop-menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html" class="active">
+                About
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="portfolio.html">
+                Portfolio
+            </a>
+
+            <a href="contacts.html">
+                Contact
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="contacts.html" class="nav-btn">
+                Let's Talk
+            </a>
+
+            <button class="menu-toggle" id="menuToggle">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="services.html">Services</a>
+
+    <a href="portfolio.html">Portfolio</a>
+
+    <a href="contacts.html">Contact</a>
+
+</div>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#">Services</a>
+    <a href="#">Products</a>
+    <a href="#">Industries</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="contacts.html">Contact</a>
+
+</div>
+<!-- HERO SECTION -->
+<section class="hero-wrapper">
+
+    <div class="hero-content">
+
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-globe">
+            <source src="assets/videos/herovideo.MP4" type="video/mp4">
+        </video>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-overlay-content">
+
+            <span class="hero-tag">
+                DIGITAL TRANSFORMATION PARTNER
+            </span>
+
+            <h1>
+                Transforming Ideas 
+                <span>Into Digital Solutions</span>
+            </h1>
+
+            <p>
+                Creating innovative digital solutions that help organizations operate smarter, 
+                grow faster and achieve lasting impact.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="contacts.html" class="btn btn-primary btn-lg">
+                    Start a Project
+                </a>
+
+                <a href="cases.html" class="btn btn-outline-light btn-lg">
+                    View Portfolio
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- IMPACT SECTION -->
+<section class="impact-section">
+<div class="impact-left">
+
+    <span class="impact-tag">
+        OUR IMPACT
+    </span>
+
+        <h2>
+          Powering businesses, financial institutions
+          and organizations with scalable software
+          solutions that drive efficiency, growth
+          and digital transformation.
+        </h2>
+
+    <p>
+        Delivering scalable digital platforms, fintech solutions,
+        transport systems and enterprise applications that create
+        measurable impact.
+    </p>
+
+</div>
+
+        <!-- CENTER -->
+        <div class="impact-center">
+            <!-- empty intentionally -->
+        </div>
+
+        <!-- RIGHT -->
+        <div class="impact-right">
+
+            <div class="impact-stat">
+                <h3 class="counter" data-target="300">0</h3>
+                <span>Special Hire Buses Registered</span>
+            </div>
+
+            <div class="impact-stat">
+                <h3 class="counter" data-target="15">0</h3>
+                <span>Financial Institutions Connected</span>
+            </div>
+
+            <div class="impact-stat">
+                <h3 class="counter" data-target="50000">0</h3>
+                <span>Platform Users Served</span>
+            </div>
+
+            <div class="impact-stat">
+                <h3>99.9%</h3>
+                <span>System Availability</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- PARTNERS SECTION -->
+<section class="partners-section">
+
+    <div class="container">
+
+        <div class="partners-header">
+
+            <span class="section-tag">
+                TRUSTED BY ORGANIZATIONS
+            </span>
+
+            <h2>
+                Trusted by organizations delivering impact
+                through technology and innovation.
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- ROW 1 -->
+
+    <div class="logo-slider">
+
+        <div class="logo-track track-1">
+
+            <div class="partner-card"><img src="assets/img/clients/ACN.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/AMACHA.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/APE.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/CC.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/eatv.png"></div>
+
+            <!-- DUPLICATE -->
+
+            <div class="partner-card"><img src="assets/img/clients/ACN.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/AMACHA.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/APE.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/CC.png"></div>
+            <div class="partner-card"><img src="assets/img/clients/eatv.png"></div>
+
+        </div>
+
+    </div>
+
+    <!-- ROW 2 -->
+
+    <div class="logo-slider">
+
+        <div class="logo-track track-2">
+
+            <div class="partner-card"><img src="assets/img/index/akiba.png"></div>
+            <div class="partner-card"><img src="assets/img/index/amana-bank-trans.png"></div>
+            <div class="partner-card"><img src="assets/img/index/maboto-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/mkami-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/magere-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/ncba-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/pbz-logo-trans.png"></div>
+            <div class="partner-card"><img src="assets/img/index/tmf-logo.png"></div>
+
+            <!-- DUPLICATE -->
+
+            <div class="partner-card"><img src="assets/img/index/akiba.png"></div>
+            <div class="partner-card"><img src="assets/img/index/amana-bank-trans.png"></div>
+            <div class="partner-card"><img src="assets/img/index/maboto-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/mkami-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/industries/anny-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/magere-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/ncba-logo.png"></div>
+            <div class="partner-card"><img src="assets/img/index/pbz-logo-trans.png"></div>
+            <div class="partner-card"><img src="assets/img/index/tmf-logo.png"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="portfolio-showcase">
+
+    <div class="showcase-header">
+
+        <span class="section-tag">
+            SELECTED WORK
+        </span>
+
+        <h2>
+            Solutions Creating Real Impact
+        </h2>
+
+    </div>
+
+    <div class="video-showcase">
+
+        <video
+            id="portfolioVideo"
+            autoplay
+            muted
+            playsinline>
+
+            <source
+                src="assets/videos/eloanadd.mp4"
+                type="video/mp4">
+
+        </video>
+
+    </div>
+<div class="showcase-cta">
+
+    <a href="#portfolio">
+
+        <span class="cta-text">
+            EXPLORE OUR WORK
+            <span class="arrow">→</span>
+        </span>
+
+    </a>
+
+</div>
+</section>
+
+<!-- INDUSTRIES WE SERVE -->
+
+<section class="industries-section">
+
+    <div class="industries-header">
+
+        <span class="section-tag">
+            INDUSTRIES WE SERVE
+        </span>
+
+        <h2>
+            Building technology solutions for organizations
+            across multiple industries.
+        </h2>
+
+    </div>
+
+    <div class="industries-stack">
+
+        <!-- 01 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">01</span>
+
+                <h3>Financial Institutions</h3>
+
+                <p>
+                    Loan management systems, lending platforms,
+                    banking integrations and fintech solutions
+                    that improve operational efficiency.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portifolio/eloan dashboard.png" alt="">
+            </div>
+
+        </div>
+
+        <!-- 02 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">02</span>
+
+                <h3>Transportation</h3>
+
+                <p>
+                    Ticketing platforms, fleet management systems, Cargo Management System,
+                    passenger services and transport digitization
+                    solutions.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portifolio/msafiri2.png" alt="">
+            </div>
+
+        </div>
+
+        <!-- 03 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">03</span>
+
+                <h3>E-Commerce & Online Retail</h3>
+
+                <p>
+                    Online stores, marketplace platforms,
+                    digital payments and customer engagement
+                    solutions for growing businesses.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portfolio/tunzaacasenobg.png" alt="">
+            </div>
+
+        </div>
+
+        <!-- 04 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">04</span>
+
+                <h3>Project Management Systems</h3>
+
+                <p>
+                    Systems that help organizations manage
+                    projects, resources, reporting and
+                    operational workflows efficiently.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portifolio/ppmsmockup.png" alt="">
+            </div>
+
+        </div>
+
+        <!-- 05 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">05</span>
+
+                <h3>Education</h3>
+
+                <p>
+                    School management systems, student portals
+                    and learning platforms designed for
+                    educational institutions.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portifolio/Untitled design (1).png" alt="">
+            </div>
+
+        </div>
+
+        <!-- 06 -->
+
+        <div class="industry-card">
+
+            <div class="industry-content">
+
+                <span class="industry-number">06</span>
+
+                <h3>Enterprise Solutions</h3>
+
+                <p>
+                    Custom ERP, CRM and enterprise software
+                    solutions tailored to unique business
+                    requirements.
+                </p>
+
+            </div>
+
+            <div class="industry-image">
+                <img src="assets/img/portifolio/crm.png" alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="faq-header">
+
+            <h2>
+                FAQ
+            </h2>
+
+            <p>
+                Learn more about our services, software development process,
+                implementation approach and ongoing support.
+            </p>
+
+        </div>
+
+        <div class="faq-wrapper">
+
+            <!-- 1 -->
+            <div class="faq-item active">
+
+                <button class="faq-question">
+                    <span>What industries do you serve?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        We work with financial institutions, transportation providers,
+                        government organizations, NGOs, educational institutions
+                        and private enterprises.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 2 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Do you build custom software solutions?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We design and develop custom web, mobile and enterprise
+                        software tailored to your organization's specific needs.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 3 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Can you modernize our existing systems?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Absolutely. We can redesign, optimize and integrate existing
+                        software platforms to improve performance, usability and scalability.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 4 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Do you develop mobile applications?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We build Android and iOS applications as well as
+                        cross-platform mobile solutions.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 5 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Can your systems integrate with existing platforms?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We integrate with payment gateways, ERPs, CRMs,
+                        third-party APIs and other enterprise systems.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 6 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>How long does a typical project take?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Timelines vary depending on scope, but most projects
+                        range between 4 and 16 weeks.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 7 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Do you provide training after deployment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We provide onboarding, user training and documentation
+                        to ensure smooth adoption.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 8 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Do you provide maintenance and support?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We offer ongoing maintenance, monitoring,
+                        security updates and technical support.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 9 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>How do we start a project with LOGIX?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Contact us through our website or schedule a consultation.
+                        We will discuss requirements and propose the best solution.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BIG CTA -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <span class="section-tag">
+            LET'S BUILD SOMETHING GREAT
+        </span>
+
+        <h2>
+            Ready to transform your ideas
+            into powerful digital solutions?
+        </h2>
+
+        <p>
+            From enterprise systems and mobile applications
+            to digital platforms and custom software,
+            we help organizations build technology that delivers results.
+        </p>
+
+        <a href="contact.html" class="cta-link">
+
+            Start a Project
+
+            <span class="cta-arrow">
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer class="footer-modern">
+
+    <div class="container">
+
+        <!-- CTA BOX -->
+
+        <div class="footer-cta">
+
+            <div>
+
+                <h3>
+                    Ready to build your next digital solution?
+                </h3>
+
+                <p>
+                    Let's discuss your requirements and create
+                    technology that drives results.
+                </p>
+
+            </div>
+
+            <a href="contacts.html" class="footer-btn">
+                Start a Project
+            </a>
+
+        </div>
+
+        <!-- LINKS -->
+
+        <div class="footer-links-grid">
+
+            <div>
+
+                <h5>Company</h5>
+
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="contacts.html">Contact</a>
+
+            </div>
+
+            <div>
+
+                <h5>Services</h5>
+
+                <a href="#">Software Development</a>
+                <a href="#">Mobile Applications</a>
+                <a href="#">Web Platforms</a>
+                <a href="#">System Integration</a>
+
+            </div>
+
+            <div>
+
+                <h5>Resources</h5>
+
+                <a href="#faq">FAQs</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+
+            </div>
+
+            <div>
+
+                <h5>Contact</h5>
+
+                <a href="https://maps.google.com/?q=Dar+es+Salaam+Tanzania" target="_blank">
+                    Dar es Salaam, Tanzania
+                </a>
+
+                <a href="tel:+255755277133">
+                    +255 755 277 133
+                </a>
+
+                <a href="tel:+255675588798">
+                    +255 675 588 798
+                </a>
+
+                <a href="mailto:contact@logix.co.tz">
+                    contact@logix.co.tz
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 LOGIX. All rights reserved.
+            </span>
+
+            <div class="footer-bottom-links">
+
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer> 
+
+<script>
+
+window.addEventListener('load', () => {
+
+    const globe = document.querySelector('.hero-globe');
+
+    window.addEventListener('scroll', () => {
+
+        const scrollY = window.scrollY;
+
+        let scale = 1.25 - (scrollY * 0.0003);
+
+        if(scale < 1){
+            scale = 1;
+        }
+
+        globe.style.transform = `scale(${scale})`;
+
+    });
+
+});
+
+
+/* COUNTER ANIMATION */
+
+const counters = document.querySelectorAll('.counter');
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+            const target = +counter.dataset.target;
+
+            let current = 0;
+
+            const updateCounter = () => {
+
+                current += target / 80;
+
+                if(current < target){
+
+                    counter.innerText =
+                        Math.floor(current).toLocaleString();
+
+                    requestAnimationFrame(updateCounter);
+
+                }else{
+
+                    counter.innerText =
+                        target.toLocaleString() + "+";
+
+                }
+
+            };
+
+            updateCounter();
+
+            observer.unobserve(counter);
+
+        }
+
+    });
+
+});
+
+counters.forEach(counter => observer.observe(counter));
+
+</script>
+<script>
+
+const menuToggle =
+document.getElementById('menuToggle');
+
+const mobileMenu =
+document.getElementById('mobileMenu');
+
+menuToggle.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('active');
+
+});
+
+window.addEventListener('scroll', () => {
+
+    const navbar =
+    document.querySelector('.navbar-custom');
+
+    if(window.scrollY > 50){
+
+        navbar.classList.add('scrolled');
+
+    }else{
+
+        navbar.classList.remove('scrolled');
+
+    }
+
+});
+
+
+
+const video = document.getElementById('portfolioVideo');
+
+const playlist = [
+
+    'assets/videos/eloanadd.mp4',
+
+    'assets/videos/portifolio.mp4'
+
+];
+
+let current = 0;
+
+video.addEventListener('ended', () => {
+
+    video.classList.add('switching');
+
+    setTimeout(() => {
+
+        current = (current + 1) % playlist.length;
+
+        video.src = playlist[current];
+
+        video.load();
+
+        video.play();
+
+    }, 1000);
+
+});
+
+video.addEventListener('loadeddata', () => {
+
+    video.classList.remove('switching');
+
+});
+
+
+</script>
+<script>
+
+/* FAQ ACCORDION */
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+
+    const btn = item.querySelector('.faq-question');
+
+    btn.addEventListener('click', () => {
+
+        faqItems.forEach(faq => {
+
+            if(faq !== item){
+
+                faq.classList.remove('active');
+
+            }
+
+        });
+
+        item.classList.toggle('active');
+
+    });
+
+});
+
+
+/* FAQ SCROLL ANIMATION */
+
+const faqObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('show');
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+faqItems.forEach(item => {
+
+    faqObserver.observe(item);
+
+});
+
+
+
+</script>
+<script>
+
+const industryCards = document.querySelectorAll('.industry-card');
+
+const industryObserver = new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('active');
+
+        }
+
+    });
+
+},
+
+{
+    threshold:0.25
+}
+
+);
+
+industryCards.forEach(card => {
+
+    industryObserver.observe(card);
+
+});
+
+</script>
+  </body>
+</html>
